@@ -28,6 +28,8 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
-        run: ./backend mvn -B package
+        run: mvn -B package
+        working-directory: ./backend
       - name: Test with Maven
-        run: ./backend mvn test -f pom.xml
+        run: mvn test -f pom.xml
+        working-directory: ./backend 
